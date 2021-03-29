@@ -69,10 +69,14 @@ It affects all applications and products that use Bash shell and parse enviromen
 
 ## How does Shellshock actually work?
 In a vulnerable version of bash the output of the following the following command is a line containing only the word vulnerable. 
-```env 'x=() { :;}; echo vulnerable' 'BASH_FUNC_x()=() { :;}; echo vulnerable' bash -c "echo test"```
+```
+env 'x=() { :;}; echo vulnerable' 'BASH_FUNC_x()=() { :;}; echo vulnerable' bash -c "echo test"
+```
 The echo command executes after the end of the bash function, but this shouldn't happen. Then why does it work?
 In addition to being a terminal prompt, Bash is also a scripting language, in which you can define functions [3]. It can be done like this:
-```yayfedora() { echo "Fedora is awesome."; }```
+```
+yayfedora() { echo "Fedora is awesome."; }
+```
 Then it can be executed like this:
 ```sh
 $ yayfedora 
@@ -120,7 +124,9 @@ cat: /tmp/echo: No such file or directory
 ```
 
 To fix a vulnerable system you can update Bash to the latest version using the following command:
-```yum update bash```
+```
+yum update bash
+```
 
 
 
