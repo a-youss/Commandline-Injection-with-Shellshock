@@ -68,7 +68,7 @@ There are three different sleep commands being used in the command below. This c
 It affects all systems that use Bash shell and parse environment variables values. If an application executes another binary, it's likely that Bash is being used. There were a couple of patches released to remedy this vulnerability. The latest patch for CVE-2014-7169 introduced changes to how Bash evaluates environment variables [4].
 
 ## How does Shellshock actually work?
-In a vulnerable version of bash the output of the following the following command is a line containing only the word vulnerable. 
+In a vulnerable version of bash the output of the following command is a line containing only the word vulnerable. 
 ```
 env 'x=() { :;}; echo vulnerable' 'BASH_FUNC_x()=() { :;}; echo vulnerable' bash -c "echo test"
 ```
