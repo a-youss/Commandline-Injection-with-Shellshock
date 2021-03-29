@@ -93,7 +93,7 @@ $ export -f yayfedora
 $ bash -c yayfedora
 Fedora is awesome.
 ```
-Basically, since there is no Linux/Unix magic for doing functions in environment variables, the export function just creates a regular environment variable containing the function definition. Then, when the second shell reads the “incoming” environment and encounters a variable with contents that look like a function, it evaluates it [3].
+Basically, the export function just creates a regular environment variable containing the function definition. Then, when the second shell reads the “incoming” environment and encounters a variable with contents that look like a function, it evaluates it [3].
 
 This mechanism seems safe in theory, however there was a bug in the code where the evaluation didn’t stop when the end of the function definition was reached, it just kept going.
 
